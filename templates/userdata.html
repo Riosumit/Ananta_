@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="navLeft">ASTITVA</div>
+      <div class="navRight">
+        <a href="#">
+          <i class="fa-solid fa-user-nurse"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="uWrapper">
+      <h2 style="padding-top: 70px">User Data:</h2>
+
+      <div class="uTwoData">
+        <div class="uData">
+          <i class="fa-solid fa-user"></i>
+          <div class="uDetail">
+            <div class="uHead">Name :</div>
+            <div>{{name}}</div>
+          </div>
+        </div>
+
+        <div class="uData">
+          <i class="fa-solid fa-address-card"></i>
+          <div class="uDetail">
+            <div class="uHead">Aadhar :</div>
+            <div>{{aadhar}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uTwoData">
+        <div class="uData">
+          <i class="fa-solid fa-cake-candles"></i>
+          <div class="uDetail">
+            <div class="uHead">Date of Birth :</div>
+            <div>{{dob}}</div>
+          </div>
+        </div>
+
+        <div class="uData">
+          <i class="fa-solid fa-venus-mars"></i>
+          <div class="uDetail">
+            <div class="uHead">Gender :</div>
+            <div>{{gender}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uTwoData">
+        <div class="uData">
+          <i class="fa-solid fa-envelope"></i>
+          <div class="uDetail">
+            <div class="uHead">Email :</div>
+            <div>{{email}}</div>
+          </div>
+        </div>
+
+        <div class="uData">
+          <i class="fa-solid fa-phone"></i>
+          <div class="uDetail">
+            <div class="uHead">Phone No :</div>
+            <div>{{phone_no}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uData">
+          <i class="fa-solid fa-location-dot"></i>
+          <div class="uDetail">
+            <div class="uHead">Address :</div>
+            <div>{{address}}</div>
+          </div>
+        </div>
+
+        <div class="uTwoData">
+        <div class="uData">
+          <i class="fa-solid fa-droplet"></i>
+          <div class="uDetail">
+            <div class="uHead">Blood Group :</div>
+            <div>{{blood}}</div>
+          </div>
+        </div>
+
+        <div class="uData">
+          <i class="fa-solid fa-person-dots-from-line"></i>
+          <div class="uDetail">
+            <div class="uHead">Allergies :</div>
+            <div>{{allergies}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uData">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <div class="uDetail">
+            <div class="uHead">History :</div>
+            <div>{{history}}</div>
+          </div>
+        </div>
+
+        <div class="uTwoData">
+        <div class="uData">
+          <i class="fa-solid fa-ruler-vertical"></i>
+          <div class="uDetail">
+            <div class="uHead">Height :</div>
+            <div>{{height}}</div>
+          </div>
+        </div>
+
+        <div class="uData">
+          <i class="fa-solid fa-weight-scale"></i>
+          <div class="uDetail">
+            <div class="uHead">Weight :</div>
+            <div>{{weight}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uTwoData">
+        <div class="uData">
+          <i class="fa-solid fa-user-plus"></i>
+          <div class="uDetail">
+            <div class="uHead">Kin Name :</div>
+            <div>{{kin_name}}</div>
+          </div>
+        </div>
+
+        <div class="uData">
+          <i class="fa-solid fa-phone-volume"></i>
+          <div class="uDetail">
+            <div class="uHead">Kin Contact :</div>
+            <div>{{kin_contact}}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@600&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Montserrat", sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: #222;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 0 1rem;
+        height: 65px;
+        width: 100%;
+        background: #fff;
+      }
+      .navLeft {
+        font-family: "Poppins", sans-serif;
+      }
+      .navRight {
+        background: #ddd;
+        color: #222;
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 1.5rem;
+      }
+      .uWrapper {
+        padding: 2rem;
+      }
+      .uWrapper h2 {
+        margin-bottom: 2rem;
+      }
+      .uTwoData {
+        display: flex;
+        align-items: center;
+        margin: .5rem 0;
+      }
+      .uData {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        margin: .5rem 0;
+      }
+      .uData i {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        background: rgba(237, 72, 72, 0.22);
+        color: #ed4848;
+        line-height: 50px;
+        text-align: center;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+      .uDetail{
+        display: flex;
+      }
+      .uDetail .uHead {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/parHospital.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <title>hospitals</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navLeft">ASTITVA</div>
+      <div class="navRight">
+        <a href="#">
+          <i class="fa-solid fa-user-nurse"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="hhero">
+        <div class="heroBanner">
+          <div class="top">
+            <span>{{name}}</span>
+          </div>
+          <p>
+            “{{about}}”
+          </p>
+        </div>
+        <form action="book" method="post" class="aptBar">
+          {% csrf_token %}
+          <div>
+            <!-- <img src="img/bed.png" alt="" /> -->
+            <i class="fa-solid fa-bed-pulse"></i>
+            <input type="text" placeholder="Eg. Cardiac" name="for"/>
+          </div>
+          <div>
+            <!-- <img src="img/schedule.png" alt="" /> -->
+            <i class="fa-solid fa-calendar-plus"></i>
+            <input type="date" placeholder="dd/mm/yyyy" name="date"/>
+          </div>
+          <button class="locateBtn">Book Apointment</button>
+        </form>
+      </div>
+  </body>
+</html>

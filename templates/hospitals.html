@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/hospitals.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <title>Volunteer</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/"><div class="navLeft">ANANTA</div></a>
+      <div class="navMainRight">
+        <div class="navRight">
+          <a href="dashboard">
+            <i class="fa-solid fa-user-nurse"></i>
+          </a>
+        </div>
+        <div class="navRight">
+          <a href="logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="hero">
+      <!-- <div class="right">
+          <img src="img/doctor.png" alt="" />
+        </div> -->
+      <form action="search" method="post" class="locateBar">
+        {% csrf_token %}
+        <!-- <img src="img/location.png" alt="" /> -->
+        <i class="fa-solid fa-magnifying-glass-location"></i>
+        <input type="text" placeholder="Search Location.......(pin code)" name="pin" required/>
+        <button class="locateBtn">Search</button>
+      </form>
+      <div class="bottom">
+        <div class="bCard">
+          <i class="fa-solid fa-user-doctor"></i>
+          <div class="number">800+</div>
+          <div class="text">Experinced Doctors</div>
+        </div>
+        <div class="bCard">
+          <i class="fa-regular fa-hospital"></i>
+          <div class="number">500+</div>
+          <div class="text">Certified Hospitals</div>
+        </div>
+        <div class="bCard">
+          <i class="fa-regular fa-face-grin-wide"></i>
+          <div class="number">24Hr.</div>
+          <div class="text">Service</div>
+        </div>
+      </div>
+    </div>
+    <div class="healthMeasure">
+      <div class="homeHeading">health measures by ayush</div>
+      <div class="healthMeasureWrapper">
+        <div class="healthmeasureCard">
+          <div class="top">
+            <img src="{% static 'img/hc1.png' %}" alt="" />
+            <span>Care in pregnancy and child birth.</span>
+          </div>
+          <div class="btn">
+            <a href="#">Know More</a>
+          </div>
+        </div>
+        <div class="healthmeasureCard">
+          <div class="top">
+            <img src="{% static 'img/hc2.png' %}" alt="" />
+            <span>Care in pregnancy and child birth.</span>
+          </div>
+          <div class="btn">
+            <a href="#">Know More</a>
+          </div>
+        </div>
+        <div class="healthmeasureCard">
+          <div class="top">
+            <img src="{% static 'img/hc3.png' %}" alt="" />
+            <span>Care in pregnancy and child birth.</span>
+          </div>
+          <div class="btn">
+            <a href="#">Know More</a>
+          </div>
+        </div>
+        <!-- <div class="healthmeasureCard">
+          <div class="top">
+            <img src="{% static 'img/graph2.png' %}" alt="" />
+            <span>Care in pregnancy and child birth.</span>
+          </div>
+          <div class="btn">
+            <a href="#">Know More</a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- <div class="specialist">
+      <div class="homeHeading">
+        find your perfect specialist
+        <img src="img/line.svg" alt="" />
+      </div>
+      <div class="specialistWrapper">
+        <div class="specialistCard">
+          <img src="./img/Eye.png" alt="" />
+          <span>Eye specialist</span>
+        </div>
+        <div class="specialistCard">
+          <img src="./img/Ortho.png" alt="" />
+          <span>Bones specialist</span>
+        </div>
+        <div class="specialistCard">
+          <img src="./img/Skin.png" alt="" />
+          <span>Skin specialist</span>
+        </div>
+      </div>
+    </div> -->
+  </body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+  <!-- My CSS -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/dashboard_css.css' %}" />
+
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <!-- CONTENT -->
+  <section id="content">
+    <nav>
+      <a href="/"><div class="navLeft">ANANTA</div></a>
+      <div class="navMainRight">
+        <div class="navRight">
+          <a href="/volunteer/">
+            <i class="fa-solid fa-house"></i>
+          </a>
+        </div>
+        <div class="navRight">
+          <a href="logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- MAIN -->
+    <main>
+      <div class="head-title">
+        <div class="left">
+          <div class="heading">your <span class="red">dashboard</span></div>
+        </div>
+        <div class="primaryBtn">
+          <h3>{{score}}</h3>
+          Health Points
+        </div>
+        <!-- <a href="#" class="your-score">
+                    <h2>460</h2>
+					<span class="text">Health Score</span>
+				</a> -->
+      </div>
+
+      <ul class="box-info">
+        <li>
+          <i class="fa fa-solid fa-calendar-day"></i>
+          <span class="text">
+            <h3>In 2 Days</h3>
+            <p>Next Appointment</p>
+          </span>
+        </li>
+        <li>
+          <i class="fa fa-solid fa-shield-heart"></i>
+          <span class="text">
+            <h3>{{blood}}</h3>
+            <p>Blood Type</p>
+          </span>
+        </li>
+        <li class="his-info">
+          <i class="fa fa-solid fa-weight-scale"></i>
+          <span class="text">
+            <h3 style="font-size: 20px;">{{height}}cm</h3>
+            <p>Height</p>
+          </span>
+          <span class="text">
+            <h3 style="font-size: 20px;">{{weight}}kg</h3>
+            <p>Weight</p>
+          </span>
+          <span class="text">
+            <h3 style="font-size: 20px;">{{bmi}}</h3>
+            <p>BMI</p>
+          </span>
+        </li>
+      </ul>
+      <ul class="box-info">
+        <li>
+          <i class="fa fa-solid fa-droplet"></i>
+          <span class="text">
+            <h3>110/75 (120/80)</h3>
+            <p>Blood Pressure</p>
+          </span>
+        </li>
+        <li>
+          <i class="fa fa-solid fa-atom"></i>
+          <span class="text">
+            <h3>176.223 (200)</h3>
+            <p>Cholestrol(mg/dl)</p>
+          </span>
+        </li>
+        <li>
+          <i class="fa fa-solid fa-syringe"></i>
+          <span class="text">
+            <h3>75.68 (70-99)</h3>
+            <p>Blood Sugar(mg/dl)</p>
+          </span>
+        </li>
+        <li>
+          <i class="fa fa-solid fa-lungs"></i>
+          <span class="text">
+            <h3>60.5 (42.5-46.4)</h3>
+            <p>V02 max (mL/kg/min)</p>
+          </span>
+        </li>
+      </ul>
+
+      <div class="table-data">
+        <div class="order">
+          <div class="head">
+            <h3>Recent Checkups</h3>
+            <i class="bx bx-search"></i>
+            <i class="bx bx-filter"></i>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>About</th>
+                <th>Date Order</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for aadhar, about, date, file in report %}
+              <tr>
+                <td>
+                  <!-- <img src="img/people.png"> -->
+                  <p>{{about}}</p>
+                </td>
+                <td>{{date}}</td>
+                <td><a href="/media/{{file}}"><span class="status completed">Get Document</span></a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="todo">
+          <div class="head">
+            <h3>Todos</h3>
+            <i class="bx bx-plus"></i>
+            <i class="bx bx-filter"></i>
+          </div>
+          <form action="add_todo" method="post" class="todoForm">
+            {% csrf_token %}
+            <input type="text" placeholder="Add Item" name="title" required />
+            <input type="submit" value="add" />
+          </form>
+          <div class="todoWrapper" style="flex-direction: column-reverse;">
+            {% for i in todo %}
+            {% for j in i %}
+            <div class="singleTodo">
+              <input type="checkbox" />
+              <p>{{j}}</p>
+            </div>
+            {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% if healthy %}
+      <div class="recomendation healthy">
+        <div class="recDiet">
+          <div class="head">
+            <h3>Recomended Diet</h3>
+          </div>
+
+          <ul>
+            <li style="display: flex">
+              <i class="fa-solid fa-plate-wheat" style="margin-right: 1rem"></i>
+              <div class="des">
+                <span>Food Source</span>
+                <p>
+                  Include plenty of fruits, vegetables, whole grains, lean
+                  protein sources, and healthy fats in your diet.
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-chart-pie"></i>
+              <div class="des">
+                <span style="font-weight: bold">Portion size</span>
+                <p>
+                  Eating too much of any food can lead to weight gain and
+                  other health problems, so pay attention to how much you're
+                  eating
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-glass-water"></i>
+              <div class="des">
+                <span style="font-weight: bold">drinking needs</span>
+                <p>
+                  Drink plenty of water and avoid sugary drinks. Alcohol can
+                  be high in calories and can also have negative effects on
+                  your health.
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-circle-info"></i>
+              <div class="des">
+                <span style="font-weight: 700">Extra info</span>
+                <p>
+                  IThese foods can be high in calories and low in nutrients,
+                  leading to weight gain and other health problems
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="recExcercise">
+          <div class="head">
+            <h3>Recomended Excercise</h3>
+          </div>
+
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/healthy/pullup.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Pull Ups</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/healthy/pushup.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Push Ups</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/healthy/squats.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Squats</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/healthy/lunges.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Lunges</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/healthy/dumble.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Dumble</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/healthy/glute.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Glutes</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/healthy/updoen.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Up Down</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/healthy/armcircle.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Arm circle</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if overweight %}
+      <div class="recomendation overweight">
+        <div class="recDiet">
+          <div class="head">
+            <h3>Recomended Diet</h3>
+          </div>
+
+          <ul>
+            <li style="display: flex">
+              <i class="fa-solid fa-plate-wheat"></i>
+              <div class="des">
+                <span>Food Source</span>
+                <p>
+                  These foods are low in calories but high in nutrients and
+                  fiber, which can help you feel full and satisfied.Limit
+                  processed and high-fat foods
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-egg"></i>
+              <div class="des">
+                <span>Protein Source</span>
+                <p>
+                  Chicken, turkey, fish, legumes, and tofu are good sources of
+                  protein that can help you feel full and build lean muscle
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-chart-pie"></i>
+              <div class="des">
+                <span style="font-weight: bold">Portion size</span>
+                <p>
+                  Even healthy foods can lead to weight gain if consumed in
+                  large quantities. Use a food scale or measuring cups to
+                  ensure you are eating appropriate portion sizes.
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-glass-water"></i>
+              <div class="des">
+                <span style="font-weight: bold">drinking needs</span>
+                <p>
+                  Drink plenty of water and avoid sugary drinks. Alcohol can
+                  be high in calories and can also have negative effects on
+                  your health.
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-circle-info"></i>
+              <div class="des">
+                <span style="font-weight: 700">Extra info</span>
+                <p>
+                  Consistency is key to successful weight loss. Stick to a
+                  healthy eating plan and make sustainable changes to your
+                  lifestyle
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="recExcercise">
+          <div class="head">
+            <h3>Recomended Excercise</h3>
+          </div>
+
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/loseWeight/cycling.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Cycling</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/loseWeight/glute.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Glute</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/loseWeight/plank.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Planck</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/loseWeight/treadmill.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Trademill</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/loseWeight/wheelrun.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Wheel Run</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/loseWeight/battlerope.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Battle Rope</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if underweight %}
+      <div class="recomendation underweight">
+        <div class="recDiet">
+          <div class="head">
+            <h3>Recomended Diet</h3>
+          </div>
+
+          <ul>
+            <li style="display: flex">
+              <i class="fa-solid fa-plate-wheat"></i>
+              <div class="des">
+                <span>Food Source</span>
+                <p>
+                  Eating small, frequent meals throughout the day can help you increase your calorie intake and support
+                  healthy weight gain, Choose foods that are high in nutrients but not too filling, such as nuts, seeds,
+                  nut butter, dried fruit, avocados, cheese, and whole milk.
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-egg"></i>
+              <div class="des">
+                <span>Protein Source</span>
+                <p>
+                  Protein is important for building muscle and supporting weight gain. Choose protein sources like eggs,
+                  meat, fish, legumes, and dairy products.
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-chart-pie"></i>
+              <div class="des">
+                <span style="font-weight: bold">Portion size</span>
+                <p>
+                  Healthy fats can provide extra calories and nutrients, and help you feel full. Choose foods like nuts,
+                  seeds, avocados, and olive oil. Whole grains, fruits, and vegetables can provide important nutrients
+                  and fiber to support overall health.
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-glass-water"></i>
+              <div class="des">
+                <span style="font-weight: bold">drinking needs</span>
+                <p>
+                  Drink plenty of water and avoid sugary drinks. Alcohol can
+                  be high in calories but can also have negative effects on
+                  your health.
+                </p>
+              </div>
+            </li>
+            <li style="display: flex">
+              <i class="fa-solid fa-circle-info"></i>
+              <div class="des">
+                <span style="font-weight: 700">Extra info</span>
+                <p>
+                  Consistency is key to healthy weight gain. Make sure you are eating enough calories every day and aim
+                  for gradual weight gain over time.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="recExcercise">
+          <div class="head">
+            <h3>Recomended Excercise</h3>
+          </div>
+
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/gainWeight/chestpress.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Chest Press</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/gainWeight/pushup.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Push Ups</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/gainWeight/squats.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Squats</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/gainWeight/lunges.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Lunges</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="twoEachExc">
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/gainWeight/pullup.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Pull up</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+            <div class="eachExcercise">
+              <div class="leftExc">
+                <img src="{% static 'img/gainWeight/deadlift.gif' %}" alt="" />
+              </div>
+              <div class="rightExc">
+                <h2>Dead Lift</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident sunt totam est tempore numquam! Necessitatibus
+                  laborum reprehenderit labore deleniti rem sequi id non cum
+                  qui?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </main>
+    <!-- MAIN -->
+  </section>
+  <!-- CONTENT -->
+
+  <script src="script.js"></script>
+</body>
+
+</html>

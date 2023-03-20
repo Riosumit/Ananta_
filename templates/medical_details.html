@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/prem.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <style>
+        input{
+            margin: 5px;
+            display: flex;
+        }
+        .organ{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/" style="text-decoration:none;"><div class="logo">
+            <!-- <img src="{% static 'img/logo.png' %}"
+            alt=""> -->
+            <h2>ANANTA</h2>
+        </div></a>
+        {% comment %} <a href="/" style="text-decoration:none;"><button type="button" class="btn btn-primary">Home</button></a> {% endcomment %}
+    </nav>
+    <main class="flex flex-col justify-evenly items-center h-full">
+        <ul class="steps">
+            <li class="step step-success">Personal Details</li>
+            <li class="step step-success">Medical Details</li>
+            <li class="step">Documents Upload</li>
+        </ul>
+        <form method="post" action="medical">
+            {% csrf_token %}
+            <div class="card w-1/2 bg-base-100 shadow-xl">
+                <div class="card-body items-start text-center ">
+                    <div class="flex justify-around w-full gap-1">
+                        <div class="grid w-1/2">
+                            <label class="label" for="blood"><span>Blood Type<span style="color:red;"> *</span></span></label>
+                            <input type="text" placeholder="Blood Type" class="input input-bordered w-full" name="blood" value="{{blood}}" />
+                        </div>
+                        <div class="grid w-1/2">
+                            <label class="label" for="allergies"><span>Allergies<span style="color:red;"> *</span></span></label>
+                            <input type="text" placeholder="Allergies" class="input input-bordered w-full" name="allergies" value="{{allergies}}" />
+                        </div>
+                    </div>
+                    <div class="flex justify-around w-full gap-1">
+                        <div class="grid w-1/2">
+                            <label class="label" for="height"><span>Height (in metres)<span style="color:red;"> *</span></span></label>
+                            <input type="text" placeholder="Height" class="input input-bordered w-full" name="height" value="{{height}}" />
+                        </div>
+                        <div class="grid w-1/2">
+                            <label class="label" for="weight"><span>Weight (in Kg)<span style="color:red;"> *</span></span></label>
+                            <input type="text" placeholder="Weight" class="input input-bordered w-full" name="weight" value="{{weight}}" />
+                        </div>
+                    </div>
+                    <label class="label" for="history"><span>Medical History<span style="color:red;"> *</span></span></label>
+                    <input type="text" placeholder="Medical History" class="input input-bordered w-full" name="history" value="{{history}}" />
+                    <p style="padding-left:2px; font-size:85%;">(including any current or past medical conditions)</p><br>
+                    <h1 style="font-weight: 700; font-size: 1.2rem;">Next of kin or emergency contact information</h1>
+                    <div class="flex justify-around w-full gap-1">
+                        <div class="grid w-1/2">
+                            <label class="label" for="kin_name"><span>Name<span style="color:red;"> *</span></span></label>
+                            <input type="text" placeholder="Name" class="input input-bordered w-full" name="kin_name" value="{{kin_name}}" />
+                        </div>
+                        <div class="grid w-1/2">
+                            <label class="label" for="kin_contact"><span>Phone Number<span style="color:red;"> *</span></span></label>
+                            <input type="number" placeholder="Phone Number" class="input input-bordered w-full" name="kin_contact" value="{{kin_contact}}" />
+                        </div>
+                    </div>
+                    <h1 style="font-weight: 700; font-size: 1.2rem;">Organs to Donate</h1>
+                    <div class="allCheckBoxs">
+                    <div class="organ"><input type="checkbox" name="heart">Heart</div>
+                    <div class="organ"><input type="checkbox" name="lungs">Lungs</div>
+                    <div class="organ"><input type="checkbox" name="liver">Liver</div>
+                    <div class="organ"><input type="checkbox" name="kidneys">Kidneys</div>
+                    <div class="organ"><input type="checkbox" name="pancreas">Pancreas</div>
+                    <div class="organ"><input type="checkbox" name="intestines">Intestines</div>
+                    <div class="organ"><input type="checkbox" name="corneas">Corneas</div>
+                    <div class="organ"><input type="checkbox" name="skin">Skin</div>
+                    <div class="organ"><input type="checkbox" name="bone">Bone</div>
+                    <div class="organ"><input type="checkbox" name="valves">Heart Valves</div>
+                    <div class="organ"><input type="checkbox" name="tissue">Connective Tissue</div></div>
+                    <br><p style="color:red; font-weight: 500;">{{msg}}</p><br>
+                    <div class="card-actions w-full">
+                        <button class="btn btn-success btn-block">Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/kidney.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+</head>
+
+<body>
+    <nav>
+        <a href="/"><div class="navLeft">ANANTA</div></a>
+        <div class="navRight">
+          <a href="/volunteer/login">
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </a>
+        </div>
+      </nav>
+    <div class="awareness">
+        <div class="heading" style="padding-top: 70px;"><span>Education</span> section</div>
+        <div class="subHeading">"Know About the recent Stats, consequences and measures"</div>
+        <div class="awareGraph">
+            <div class="awareGraph1">
+                <img src="{% static 'img/graph3.png' %}" alt="">
+                <p>Total Renal Transplant</p>
+            </div>
+            <div class="awareGraph2">
+                <img src="{% static 'img/graph4.png' %}" alt="">
+                <p>Total Living Renal Trnasplant</p>
+            </div>
+        </div>
+
+        <div class="awareHero">
+            <div class="awareHeroLeft">
+                <div class="heading">About <span>kidney</span><span>Transplant</span></div>
+                <div class="subHeading">"The greatest gift you can give to someone is the gift of life. Be an organ
+                    donor"</div><br>
+                <p>Kidney transplant is a medical procedure that involves replacing a diseased or damaged kidney with a
+                    healthy one from a donor. In India, kidney transplant is a common procedure, with many hospitals
+                    offering world-class facilities and expertise.</p>
+
+                <div class="eachEduHeading">Precautions to be taken before donation: </div>
+                <div class="eachEduPara">
+                    <ul>
+                        <li>Complete medical examination</li>
+                        <li>Blood test to determine blood type and compatibility</li>
+                        <li>Psychological evaluation</li>
+                    </ul>
+                </div>
+                <div class="eachEduHeading">Precautions to be taken at the time of donation: </div>
+                <div class="eachEduPara">
+                    <ul>
+                        <li>Maintaining proper hydration</li>
+                        <li>Monitoring vital signs</li>
+                        <li>Following proper surgical protocols</li>
+                    </ul>
+                </div>
+                <div class="eachEduHeading">Precautions to be taken after donation: </div>
+                <div class="eachEduPara">
+                    <ul>
+                        <li>Strict adherence to medications</li>
+                        <li>Regular monitoring of kidney function and blood pressure</li>
+                        <li>Avoiding certain medications and foods</li>
+                    </ul>
+                </div>
+                <div class="eachEduHeading">Maintaining a healthy lifestyle: </div>
+                <div class="eachEduPara">
+                    <ul>
+                        <li>Adequate intake of protein</li>
+                        <li>Avoiding foods high in potassium, phosphorus, and sodium</li>
+                        <li>Drinking plenty of fluids</li>
+                        <li>Eating a variety of fruits and vegetables</li>
+                    </ul>
+                </div>
+
+                <p>After a successful kidney transplant, the recipient's quality of life can improve significantly. They
+                    may experience an increase in energy, improved appetite, and a reduction in symptoms associated with
+                    kidney failure, such as fatigue and muscle cramps.
+
+                    However, there are also possible side effects that the recipient may experience after the
+                    transplant, such as</p>
+                <div class="eachEduPara">
+                    <ul>
+                        <li><b>Infection:</b> Due to the suppression of the immune system, the recipient is at a higher risk of infections</li><br>
+                        <li><b>Rejection:</b> Rejection occurs when the recipient's immune system identifies the new kidney as a foreign object and attacks it. Symptoms of rejection may include fever, tenderness over the transplanted kidney, and a decrease in urine output.</li><br>
+                        <li><b>Medication side effects:</b> The medications that the recipient must take to prevent rejection may cause side effects such as high blood pressure, high cholesterol, and diabete</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="eduBtns">
+            <div class="heading">Know <span>More</span></div>
+            <div class="knowBtn">
+                <a href="#">About Lung Transpalent</a>
+            </div>
+            <div class="knowBtn">
+                <a href="#">About Renal Transpalent</a>
+            </div>
+            <div class="knowBtn">
+                <a href="#">About Cardiac Transpalent</a>
+            </div>
+            <div class="knowBtn">
+                <a href="#">About Tissue Transpalent</a>
+            </div>
+            <div class="knowBtn">
+                <a href="#">About Bone Marrow Transpalent</a>
+            </div>
+        </div>
+
+        <div class="awareFixed">
+            <div class="subHeading">Kidney Failure <span
+                style="color: red; font-family: 'Poppins', sans-serif;">Death</span> &  <span
+                style="color: red; font-family: 'Poppins', sans-serif;">Risk</span></div>
+            <img src="{% static 'img/stat4.jpg' %}" alt="">
+            <img src="{% static 'img/stat5.jpg' %}" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>

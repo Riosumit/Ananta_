@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <title>Upload</title>
+</head>
+<body>
+     <nav>
+      <div class="navLeft">ANANTA</div>
+      <div class="navRight">
+        <a href="/hospital">
+          <i class="fa-solid fa-house"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="formbody" style="margin-top:70px;">
+        <center><form class="reportForm" action="upload_report" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <center><h3 class="formFeading">Enter the Details</h3></center>
+        <label for="aadhar">Aadhar Number <br>
+            <input type="text" name="aadhar" required>
+        </label><br><br>
+        <label for="about">About <br>
+            <input type="text" name="about" required>
+        </label><br><br>
+        <label for="date">Date <br>
+            <input type="date" name="date" required>
+        </label><br><br>
+        <label for="report">Medical Report <br>
+            <input type="file" name="report" required>
+        </label><br><br>
+        <p>{{msg}}</p><br>
+        <center><button type="submit">Submit</button></center>
+        
+    </form></center></div>
+    
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/prem.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+
+<body>
+    <nav>
+        <a href="/" style="text-decoration:none;"><div class="logo">
+            <!-- <img src="{% static 'img/logo.png' %}"
+            alt=""> -->
+            <h2>ANANTA</h2>
+        </div></a>
+        {% comment %} <a href="home" style="text-decoration:none;"><button type="button" class="btn btn-primary">Home</button></a> {% endcomment %}
+    </nav>
+    <main class="flex flex-col justify-evenly items-center h-full">
+        <ul class="steps">
+            <li class="step step-success">Personal Details</li>
+            <li class="step">Medical Details</li>
+            <li class="step">Documents Upload</li>
+        </ul>
+        <form method="post" action="personal">
+            {% csrf_token %}
+            <div class="card w-1/2 bg-base-100 shadow-xl">
+                <div class="card-body items-start text-center ">
+                    <label class="label" for="aadhar"><span>Aadhar Number<span style="color:red;"> *</span></span></label>
+                    <input type="text" placeholder="Aadhar" class="input input-bordered w-full" name="aadhar" value="{{aadhar}}" />
+                    <label class="label" for="name"><span>Full Name<span style="color:red;"> *</span></span></label>
+                    <input type="text" placeholder="Name" class="input input-bordered w-full" name="name" value="{{name}}" />
+                    <p style="color:red; padding-left:2px; font-size:85%;">(Please enter Full Name as per AADHAR)</p>
+                    <div class="flex justify-around w-full gap-1">
+                        <div class="grid w-1/2">
+                            <label class="label" for="date"><span>Date of Birth<span style="color:red;"> *</span></span></label>
+                            <input type="date" placeholder="Email" class="input input-bordered w-full" name="dob" value="{{dob}}" />
+                        </div>
+                        <div class="grid w-1/2">
+                            <label class="label" for="Gender"><span>Gender<span style="color:red;"> *</span></span></label>
+                            <input type="text" placeholder="Gender" class="input input-bordered w-full" name="gender" value="{{gender}}" />
+                        </div>
+                    </div>
+                    <div class="flex justify-around w-full gap-1">
+                        <div class="grid w-1/2">
+                            <label class="label" for="Email"><span>Email<span style="color:red;"> *</span></span></label>
+                            <input type="text" placeholder="Email" class="input input-bordered w-full" name="email" value="{{email}}" />
+                        </div>
+                        <div class="grid w-1/2">
+                            <label class="label" for="Gender"><span>Phone Number<span style="color:red;"> *</span></span></label>
+                            <input type="number" placeholder="Phone Number" class="input input-bordered w-full" name="phone_no" value="{{phone_no}}" />
+                        </div>
+                    </div>
+                    <label class="label" for="address"><span>Address<span style="color:red;"> *</span></span></label>
+                    <input type="text" placeholder=Address" class="input input-bordered w-full" name="address" value="{{address}}" />
+                    <div class="flex justify-around w-full gap-1">
+                        <div class="grid w-1/2">
+                            <label class="label" for="password"><span>Password<span style="color:red;"> *</span></span></label>
+                            <input type="password" placeholder="Password" class="input input-bordered w-full " value="{{password}}" name="password" required />
+                        </div>
+                        <div class="grid w-1/2">
+                            <label class="label" for="c_password"><span>Confirm Password<span style="color:red;"> *</span></span></label>
+                            <input type="password" placeholder="Password" class="input input-bordered w-full " value="{{c_password}}" name="c_password" required />
+                        </div>
+                    </div>
+                    <br><p style="color:red; font-weight:500;">{{msg}}</p><br>
+                    <div class="card-actions w-full">
+                        <button class="btn btn-success btn-block">Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
