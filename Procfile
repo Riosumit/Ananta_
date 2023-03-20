@@ -1,1 +1,1 @@
-web: gunicorn Ananta.wsgi
+gunicorn Ananta.wsgi:application --workers 4 --error-logfile /var/log/Ananta/error.log --log-file /var/log/Ananta/access.log
