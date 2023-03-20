@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0;
+    padding: 0 1rem;
+    height: 65px;
+    width: 100%;
+    background: #fff;
+}
+.navLeft{
+    font-family: 'Poppins', sans-serif;
+}
+.navRight {
+    background: #ddd;
+    color: #222;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+.hero{
+    border: 1px solid transparent;
+    max-height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(../img/heroBg_1.png);
+    background-size: cover;
+    background-position: center;
+}
+.heroWrapper{
+    width: 80%;
+    margin: 6rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.heroHeading{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    color: #333;
+    font-size: 3.5rem;
+    letter-spacing: .05rem;
+    margin: 1rem 0;
+}
+.heroHeading span{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #000;;
+}
+.heroHeading span.red{
+    color: #ED4848;
+}
+.heroPara{
+    width: 70%;
+    margin: 1rem auto;
+}
+.heroBtn{
+    margin: 2rem 0;
+    display: flex;
+    gap: 1rem;
+}
+.heroImg{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.eachHeroImg{
+    width: 33.33%;
+    height: 37vh;
+}
+.eachHeroImg img{
+    width: 100%;
+    height: 100%;
+}
+.primaryBtn{
+    width: 150px;
+    padding: .75rem 0;
+    text-align: center;
+    border: 2px solid #ED4848;
+    background-color: #ED4848;
+    color: #fff;
+}
+.secondaryBtn{
+    width: 150px;
+    padding: .75rem 0;
+    text-align: center;
+    border: 2px solid #ED4848;
+    transition: .5s;
+}
+.secondaryBtn:hover{
+    border: 2px solid #ED4848;
+    background-color: #ED4848;
+    color: #fff;
+    cursor: pointer;
+}
+.heading{
+    text-transform: uppercase;
+    font-size: 2.75rem;
+    font-family: 'Poppins', sans-serif;
+}
+.heading span.red{
+    font-family: 'Poppins', sans-serif;
+    color: #ED4848;
+}
+.subHeading{
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+    color: #333;
+}
+.why{
+    padding: 0 2rem;
+    padding-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+.why img{
+    width: 150%;
+}
+.whyPara{
+    margin: 3.2rem 0;
+}
+.whom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.whomWrapper{
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.whomPara{
+    width: 80%;
+    margin: 3.2rem auto;
+    text-align: center;
+}
+.whomImage{
+    width: 100%;
+    margin: 3.2rem 0;
+}
+.whomImage img{
+    width: 100%;
+}
+.what{
+    margin: 4rem 2rem;
+    /* padding: 0 2rem; */
+}
+.whatWrapper{
+    display: flex;
+    flex-direction: column;
+}
+.whatEach{
+    margin: 3.5rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+.whatEach:nth-child(even){
+    flex-direction: row-reverse;
+}
+.eachWrapper{
+    width: 45%;
+}
+.whatHeading{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+}
+.whatPara{
+    margin: 2rem 0;
+}
+.whatEachImg{
+    width: 45%;
+}
+.whatEachImg img{
+    width: 100%;
+}
+.footer{
+    background-color: #f3f2f2;
+}
+.footerWrapper{
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+.footerWrapper ul{
+    list-style: none;
+}
+.footerHead{
+    font-family: 'Poppins', sans-serif;
+    color: #ED4848;
+    margin: 1rem 0;
+}
+.footerCopy{
+    text-align: center;
+}
+
+.formbody{
+    background-image: url("../img/5570863.jpg");
+    background-size: cover;
+}
+
+.reportForm{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 40%;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.reportForm input{
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    border: none;
+    padding: 6px;
+    color: #ddd;
+}
+.formFeading{
+    font-family: "poppins", sans-serif;
+    color: #ED4848;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+.reportForm{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 40%;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.reportForm button{
+    background-color: #ED4848;
+    color: #fff;
+    font-size: large;
+    font-family: "poppins", sans-serif;
+    width: min-content;
+    padding: 12px 60px;
+    border: none;
+    border-radius: 1343px;
+    transition: .4s ease-in-out;
+}
+.reportForm button:hover{
+    box-shadow: rgba(237, 72, 72, 0.22) 0px 10px 18px, rgba(0, 0, 0, 0.22) 0px 8px 12px;
+}

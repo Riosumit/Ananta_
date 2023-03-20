@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+i{
+    font-size: 40px;
+    color: #ed4848;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0;
+    padding: 0 1rem;
+    height: 65px;
+    width: 100%;
+    background: #fff;
+    z-index: 3;
+}
+.navLeft{
+    font-family: 'Poppins', sans-serif;
+}
+.navMainRight{
+	display: flex;
+  flex-direction: row;
+	gap: 1rem;
+	align-items: center;
+}
+.navRight {
+    background: #ddd;
+    color: #222;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+.hero {
+  background: url(../img/heroBg_1.png);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 0;
+}
+.hero .right {
+  position: relative;
+  width: 550px;
+  height: 100vh;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #41ddac 3.65%,
+    rgba(233, 255, 248, 0) 100%
+  );
+}
+.hero .right img {
+  position: absolute;
+  bottom: 0;
+  left: -16rem;
+  height: 90vh;
+}
+.hero .locateBar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 0px 60px 114px rgba(0, 0, 0, 0.05),
+    0px 25.0666px 47.6265px rgba(0, 0, 0, 0.0359427),
+    0px 13.4018px 25.4634px rgba(0, 0, 0, 0.0298054),
+    0px 7.51293px 14.2746px rgba(0, 0, 0, 0.025),
+    0px 3.99006px 7.58112px rgba(0, 0, 0, 0.0201946),
+    0px 1.66035px 3.15467px rgba(0, 0, 0, 0.0140573);
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  z-index: 2;
+}
+.locateBar img {
+  width: 30px;
+  height: 40px;
+}
+.locateBar .locateBtn {
+  background: #ed4848;
+  box-shadow: 0px 4px 14px 4px rgba(237, 72, 72, 0.22) ;
+  border-radius: 36px;
+  padding: 0.8rem 2.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+.locateBar input {
+  width: 100%;
+  margin: 0 1rem;
+  padding: 0.6rem;
+  border: none;
+  outline: none;
+  z-index: 2;
+}
+.hero .bottom {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 8px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  width: 60%;
+  z-index: -1;
+}
+.bottom .bCard {
+  text-align: center;
+  width: 33.33%;
+  color: var(--primary-color);
+}
+.bottom .bCard img {
+  width: 60px;
+  height: 60px;
+  margin: 0.25rem;
+}
+.bottom .bCard .number {
+  font-size: 2.5rem;
+  margin: 0.25rem 0;
+  font-family: "Lato", sans-serif;
+}
+
+.homeHeading{
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.healthMeasure {
+  margin: 0 2rem;
+}
+.healthMeasureWrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 2rem;
+}
+.healthmeasureCard {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 8px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 440px;
+  max-width: 440px;
+  padding: 1rem 1.5rem;
+  border: 4px solid rgba(237, 72, 72, 0.22);
+}
+.healthmeasureCard:hover{
+    border: 4px solid #ed4848;
+}
+.healthmeasureCard .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+.healthmeasureCard .top img {
+  height: 160px;
+}
+.healthmeasureCard .top span {
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+}
+.healthmeasureCard .btn {
+  padding: 1rem 3rem;
+  border-radius: 36px;
+  transition: 0.2s ease-in-out;
+  background-color: rgba(237, 72, 72, 0.22);
+}
+.healthmeasureCard .btn:hover {
+  box-shadow: 0px 4px 8px rgba(233, 89, 89, 0.3);
+  background-color: #ed4848;
+  color: white;
+}
+.healthmeasureCard .btn a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+.specialist {
+  margin: 0 2rem;
+  margin-top: 6rem;
+}
+.specialistWrapper {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 2rem;
+}
+.specialistCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.5rem 2rem;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 8px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  min-width: 300px;
+  max-width: 300px;
+}
+.specialistCard img {
+  width: 80px;
+  height: 80px;
+}
+.specialistCard span {
+  font-family: "Lato", sans-serif;
+}
+
+
