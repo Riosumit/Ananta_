@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 150%;
+}
+body{
+    background-color: #eee;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0;
+    padding: 0 1rem;
+    height: 55px;
+    width: 100%;
+    background: #fff;
+}
+.navLeft{
+    font-family: 'Poppins', sans-serif;
+}
+.navRight {
+    background: #ddd;
+    color: #222;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+.heading{
+    /* text-align: center; */
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    font-family: 'Poppins', sans-serif;
+}
+.awareness{
+    padding: 0 2rem;
+}
+.heading span{
+    color: #ed4848;
+    font-family: 'Poppins', sans-serif;
+}
+.subHeading{
+    color: #222;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+.awareHero{
+    width: calc(100% - 16rem);
+    /* min-height: 100px; */
+    /* max-height: 100px; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+.awareHero p{
+    margin: 1rem;
+}
+.awareWrapper{
+    width: calc(100% - 16rem);
+    padding: 2rem;
+}
+.awareEach{
+    margin: 40px 0;
+}
+.awareEach p.myth{
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+.awareEach .fact{
+    padding: 1rem;
+    margin: 1rem;
+    background: #fff;
+    border-radius: 20px;
+}
+.awareEach ul{
+    padding: 1rem 2rem;
+}
+.awareGraph{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: calc(100% - 20rem);
+    margin: 1rem;
+    border-radius: 20px;
+    padding: 1rem;
+    background: #fff;
+}
+.awareGraph img{
+    width: 350px;
+}
+.awareFixed{
+    position: fixed;
+    padding: 1rem 2rem;
+    top: 60px;
+    right: 0rem;
+    width: 16rem;
+    min-height: 100vh;
+    background-color: #fff;
+    /* border-radius: 20px; */
+}
+.awareFixed img{
+    width: 8rem;
+}
+.awareFixed .sym{
+    display: flex;
+    align-items: center;
+    margin: .5rem;
+}
+.awareFixed .symbol1{
+    width: 20px;
+    height: 20px;
+    margin: .25rem;
+    background: #c0c0c0;
+}
+.awareFixed .symbol2{
+    width: 20px;
+    height: 20px;
+    margin: .25rem;
+    background: rgb(234, 126, 126);
+}
