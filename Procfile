@@ -1,1 +1,1 @@
-web: gunicorn Ananta.wsgi --log-file=-
+web: gunicorn ananta.wsgi --log-file -
