@@ -1,1 +1,1 @@
-web: gunicorn --log-file myapp.log Ananta:app
+web: gunicorn Ananta.wsgi --log-file -
