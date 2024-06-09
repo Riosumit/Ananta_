@@ -26,11 +26,11 @@ To get started with ANANTA, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Riosumit/Udaan.git
+   git clone https://github.com/Riosumit/Ananta_.git
 
 2. Navigate to the project directory:
    ```bash
-   cd Ananta
+   cd Ananta_
 
 3. Install the required dependencies:
    ```bash
