@@ -30,7 +30,7 @@ To get started with ANANTA, follow these steps:
 
 2. Navigate to the project directory:
    ```bash
-   cd Udaan
+   cd Ananta
 
 3. Install the required dependencies:
    ```bash
